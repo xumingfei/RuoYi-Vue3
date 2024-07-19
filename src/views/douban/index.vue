@@ -139,9 +139,6 @@
     <!-- 添加或修改豆瓣图书对话框 -->
     <el-dialog :title="title" v-model="open" width="500px" append-to-body>
       <el-form ref="bookRef" :model="form" :rules="rules" label-width="80px">
-        <el-form-item label="序号" prop="number">
-          <el-input v-model="form.number" placeholder="请输入序号"/>
-        </el-form-item>
         <el-form-item label="isbn" prop="isbn">
           <el-input v-model="form.isbn" placeholder="请输入isbn"/>
         </el-form-item>
@@ -169,30 +166,8 @@
         <el-form-item label="图书链接" prop="url">
           <el-input v-model="form.url" placeholder="请输入图书链接"/>
         </el-form-item>
-        <el-form-item label="是否删除0-未删除,1-已删除" prop="isDelete">
-          <el-input v-model="form.isDelete" placeholder="请输入是否删除0-未删除,1-已删除"/>
-        </el-form-item>
         <el-form-item label="备注" prop="remark">
           <el-input v-model="form.remark" placeholder="请输入备注"/>
-        </el-form-item>
-        <el-form-item label="是否抓取0-未抓取,1-已抓取" prop="isSearch">
-          <el-input v-model="form.isSearch" placeholder="请输入是否抓取0-未抓取,1-已抓取"/>
-        </el-form-item>
-        <el-form-item label="创建时间" prop="createdTime">
-          <el-date-picker clearable
-                          v-model="form.createdTime"
-                          type="date"
-                          value-format="YYYY-MM-DD"
-                          placeholder="请选择创建时间">
-          </el-date-picker>
-        </el-form-item>
-        <el-form-item label="修改时间" prop="modifiedTime">
-          <el-date-picker clearable
-                          v-model="form.modifiedTime"
-                          type="date"
-                          value-format="YYYY-MM-DD"
-                          placeholder="请选择修改时间">
-          </el-date-picker>
         </el-form-item>
         <el-form-item label="序号isbn" prop="isbnNumber">
           <el-input v-model="form.isbnNumber" placeholder="请输入序号isbn"/>
@@ -203,25 +178,11 @@
         <el-form-item label="颁奖年份" prop="awardYear">
           <el-input v-model="form.awardYear" placeholder="请输入颁奖年份"/>
         </el-form-item>
-        <el-form-item label="分类 社科/科普/少儿" prop="category">
+        <el-form-item label="分类" prop="category">
           <el-input v-model="form.category" placeholder="请输入分类 社科/科普/少儿"/>
         </el-form-item>
         <el-form-item label="原创译著" prop="originalTranslation">
           <el-input v-model="form.originalTranslation" placeholder="请输入原创译著"/>
-        </el-form-item>
-        <el-form-item label="星级" prop="starLevel">
-          <el-input v-model="form.starLevel" placeholder="请输入星级"/>
-        </el-form-item>
-        <el-form-item label="sheet名称" prop="sheetName">
-          <el-input v-model="form.sheetName" placeholder="请输入sheet名称"/>
-        </el-form-item>
-        <el-form-item label="抓取时间" prop="searchDate">
-          <el-date-picker clearable
-                          v-model="form.searchDate"
-                          type="date"
-                          value-format="YYYY-MM-DD"
-                          placeholder="请选择抓取时间">
-          </el-date-picker>
         </el-form-item>
         <el-form-item label="评分人数" prop="scorePeopleNum">
           <el-input v-model="form.scorePeopleNum" placeholder="请输入评分人数"/>
@@ -251,6 +212,7 @@ const single = ref(true);
 const multiple = ref(true);
 const total = ref(0);
 const title = ref("");
+
 const categoryOptions = [{
   label: '社科',
   value: '社科'
@@ -293,7 +255,7 @@ const data = reactive({
     scorePeopleNum: null
   },
   rules: {
-    isDelete: [
+    /*isDelete: [
       {required: true, message: "是否删除0-未删除,1-已删除不能为空", trigger: "blur"}
     ],
     isSearch: [
@@ -304,7 +266,7 @@ const data = reactive({
     ],
     modifiedTime: [
       {required: true, message: "修改时间不能为空", trigger: "blur"}
-    ],
+    ],*/
   }
 });
 
